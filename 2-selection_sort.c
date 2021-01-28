@@ -16,6 +16,13 @@ void swap_array(int *array, int i, int j)
 	array[j] = tmp;
 }
 
+/**
+  * selection_sort - selection sorting algo
+  * @array: the array to sort
+  * @size: size of the array
+  * Return: void
+  */
+
 void selection_sort(int *array, size_t size)
 {
 	size_t i = 0, j, min;
