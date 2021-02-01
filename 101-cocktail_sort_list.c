@@ -54,7 +54,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *tmp = *list;
 
 	end = len_list(*list);
-	if (*list == NULL || list == NULL || end < 2)
+	if (*list == NULL || list == NULL || end < 2 || (*list)->next == NULL)
 		return;
 	while (flag)
 	{
