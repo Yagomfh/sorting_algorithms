@@ -31,18 +31,14 @@ void swap_array(int *array, int i, int j)
 int partition(int *array, int lo, int hi, size_t size)
 {
 	int pivot = array[hi];
-	int i = lo - 1, j = hi + 1;
+	int i = lo, j = hi;
 
 	while (1)
 	{
-		do
-		{
+		while (array[i] < pivot)
 			i++;
-		} while (array[i] < pivot);
-		do
-		{
+		while (array[j] > pivot)
 			j--;
-		} while (array[j] > pivot);
 		if (i >= j)
 			return (j);
 		swap_array(array, i, j);
@@ -65,17 +61,9 @@ void qs(int *array, int lo, int hi, size_t size)
 
 	if (lo < hi)
 	{
-		printf("lo = %d  hi = %d", lo, hi);
-		puts("\n");
 		p = partition(array, lo, hi, size);
-		printf("p = %d\n", p);
-		if (p == 9 && lo == 6 && hi == 9)
-		{
-			print_array(array, size);
-			return;
-		}
-		qs(array, lo, p, size);
-		qs(array, p + 1, hi, size);
+		qs(array, lo, p - 1, size);
+		qs(array, p, hi, size);
 	}
 }
 
