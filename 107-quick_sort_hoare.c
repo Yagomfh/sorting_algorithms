@@ -33,17 +33,22 @@ int partition(int *array, int lo, int hi, size_t size)
 	int pivot = array[hi];
 	int i = lo, j = hi;
 
-	while (1)
+	for (i = lo - 1, j = hi + 1; i < j; )
 	{
-		while (array[i] < pivot)
+		do {
 			i++;
-		while (array[j] > pivot)
+		} while (array[i] < pivot);
+
+		do {
 			j--;
-		if (i >= j)
-			return (j);
-		swap_array(array, i, j);
-		print_array(array, size);
+		} while (array[j] > pivot);
+		if (i < j)
+		{
+			swap_array(array, i, j);
+			print_array(array, size);
+		}
 	}
+	return (i);
 }
 
 /**
@@ -68,7 +73,7 @@ void qs(int *array, int lo, int hi, size_t size)
 }
 
 /**
-  * quick_sort - quick sort function
+  * quick_sort_hoare - quick sort function
   * @array: array to sort
   * @size: size of the array
   * Return: void
