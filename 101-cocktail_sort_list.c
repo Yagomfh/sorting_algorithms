@@ -51,10 +51,11 @@ int len_list(listint_t *list)
 void cocktail_sort_list(listint_t **list)
 {
 	int start = 0, end, flag = 1, counter = 0;
-	listint_t *tmp = *list;
+	listint_t *tmp;
 
-	if (*list == NULL || list == NULL || (*list)->next == NULL)
+	if (list == NULL || *list == NULL || (*list)->next == NULL)
 		return;
+	tmp = *list;
 	end = len_list(*list);
 	while (flag)
 	{
