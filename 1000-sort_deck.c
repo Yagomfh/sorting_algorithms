@@ -42,9 +42,15 @@ int len_list(deck_node_t *list)
 	return (res);
 }
 
+/**
+  * c_int - card to int
+  * @node: node to parse
+  * Return: nb of card or -1
+  */
+
 int c_int(deck_node_t *node)
 {
-	char *val[13] = {"Ace", "2", "3", "4", "5", "6", "7", 
+	char *val[13] = {"Ace", "2", "3", "4", "5", "6", "7",
 		"8", "9", "10", "Jack", "Queen", "King"};
 	int i;
 
@@ -57,7 +63,7 @@ int c_int(deck_node_t *node)
 }
 
 /**
- * cocktail_sort_list - cocktail sorting algo
+ * sort_deck - sort deck with cocktail sorting algo
  * @list: pointer to list to sort
  * Return: void
  */
