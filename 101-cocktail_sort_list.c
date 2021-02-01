@@ -53,16 +53,17 @@ void cocktail_sort_list(listint_t **list)
 	int start = 0, end, flag = 1, counter = 0;
 	listint_t *tmp = *list;
 
-	if (*list == NULL || list == NULL)
-		return;
-
 	end = len_list(*list);
+	if (*list == NULL || list == NULL || end < 2)
+		return;
 	while (flag)
 	{
+		flag = 0;
 		while (counter < end - 1)
 		{
 			if (tmp->n > tmp->next->n)
 			{
+				flag = 1;
 				swap_nodes(tmp, tmp->next, list);
 				print_list(*list);
 			}
@@ -71,6 +72,8 @@ void cocktail_sort_list(listint_t **list)
 			counter++;
 		}
 		end--;
+		if (flag == 0)
+			break;
 		flag = 0;
 		while (counter > start)
 		{
